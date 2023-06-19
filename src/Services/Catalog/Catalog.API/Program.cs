@@ -24,7 +24,7 @@ internal class Program
         builder.Services.AddScoped<IProductRepository, ProductRepository>();
          
         var app = builder.Build();
-        app.UseDeveloperExceptionPage();
+       // app.UseDeveloperExceptionPage();
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
