@@ -4,29 +4,27 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <DockerComposeProjectPath>../../../docker-compose.dcproj</DockerComposeProjectPath>
-    <UserSecretsId>2701f65a-9192-4dfe-8d18-1542347e8bcb</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.8" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
     <PackageReference Include="Npgsql" Version="7.0.4" />
     <PackageReference Include="Dapper" Version="2.0.143" />
   </ItemGroup>
 
+
   <ItemGroup>
-    <None Remove="Controllers\" />
-    <None Remove="Entities\" />
-    <None Remove="Repositories\" />
-    <None Remove="Extensions\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
     <Folder Include="Entities\" />
     <Folder Include="Repositories\" />
     <Folder Include="Extensions\" />
+    <Folder Include="Protos\" />
+    <Folder Include="Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="Protos\discount.proto" GrpcServices="Server">
+    </Protobuf>
+  </ItemGroup>
+ 
 </Project>
